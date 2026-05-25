@@ -2,17 +2,17 @@
 
 ## Cover
 
-| Field               | Value                                                        |
-| ------------------- | ------------------------------------------------------------ |
-| Group               | Group 5 - Xbrain                                             |
-| Student             | Hoang Nam                                                    |
-| Target Role         | DevOps / CloudOps                                            |
-| Repository          | (Your GitHub Link)                                           |
-| Prior Week Evidence | [W4: AI Agent with RAG + Tools + Memory]                     |
-| Deadline            | 2026-06-04                                                   |
-| Application         | GeekBrain — Unified ReAct Agent for platform engineering     |
-| Stack               | ECS Fargate + CloudFront + ALB + Bedrock KB + DynamoDB + EFS |
-| Deployment          | AWS CLI Scripts (Bash)                                       |
+| Field               | Value                                                                               |
+| ------------------- | ----------------------------------------------------------------------------------- |
+| Group               | Group 5 - Xbrain                                                                    |
+| Student             | Hoang Nam                                                                           |
+| Target Role         | DevOps / CloudOps                                                                   |
+| Repository          | https://github.com/NamHoang4268/w5_group5_namhoang/blob/main/w5/docs/W5_evidence.md |
+| Prior Week Evidence | [W4: AI Agent with RAG + Tools + Memory]                                            |
+| Deadline            | 2026-06-04                                                                          |
+| Application         | GeekBrain — Unified ReAct Agent for platform engineering                            |
+| Stack               | ECS Fargate + CloudFront + ALB + Bedrock KB + DynamoDB + EFS                        |
+| Deployment          | AWS CLI Scripts (Bash)                                                              |
 
 ---
 
