@@ -1,0 +1,4 @@
+.playwright-mcp
+terraform.tfstate.**.backup
+.github/workflows/
+.kiro/*

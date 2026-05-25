@@ -1,0 +1,41 @@
+{
+  "family": "xbrain-w5-backend",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::180273188579:role/xbrain-w5-ecs-execution-role",
+  "taskRoleArn": "arn:aws:iam::180273188579:role/xbrain-w5-ecs-task-role",
+  "volumes": [
+    {
+      "name": "efs-knowledge-base",
+      "efsVolumeConfiguration": { "fileSystemId": "fs-011c4dcb4882bb100", "rootDirectory": "/", "transitEncryption": "ENABLED" }
+    },
+    {
+      "name": "efs-database",
+      "efsVolumeConfiguration": { "fileSystemId": "fs-011c4dcb4882bb100", "rootDirectory": "/", "transitEncryption": "ENABLED" }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "xbrain-w5-backend",
+      "image": "180273188579.dkr.ecr.ap-southeast-1.amazonaws.com/xbrain-w5-backend:latest",
+      "portMappings": [{ "containerPort": 8001, "protocol": "tcp" }, { "containerPort": 8000, "protocol": "tcp" }],
+      "mountPoints": [
+        { "sourceVolume": "efs-knowledge-base", "containerPath": "/mnt/efs", "readOnly": false },
+        { "sourceVolume": "efs-database", "containerPath": "/mnt/efs/database", "readOnly": false }
+      ],
+      "environment": [
+        { "name": "AWS_DEFAULT_REGION", "value": "ap-southeast-1" },
+        { "name": "DYNAMODB_REGION", "value": "ap-southeast-1" },
+        { "name": "EFS_KNOWLEDGE_BASE_PATH", "value": "/mnt/efs/knowledge_base" },
+        { "name": "DB_PATH", "value": "/mnt/efs/database/geekbrain.db" }
+      ],
+      "secrets": [
+        { "name": "BEDROCK_KB_ID", "valueFrom": "arn:aws:ssm:ap-southeast-1:180273188579:parameter/geekbrain/BEDROCK_KB_ID" },
+        { "name": "DYNAMODB_TABLE", "valueFrom": "arn:aws:ssm:ap-southeast-1:180273188579:parameter/geekbrain/DYNAMODB_TABLE" }
+      ],
+      "essential": true
+    }
+  ]
+}

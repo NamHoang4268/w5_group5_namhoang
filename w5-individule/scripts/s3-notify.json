@@ -1,0 +1,9 @@
+{
+  "LambdaFunctionConfigurations": [
+    {
+      "LambdaFunctionArn": "arn:aws:lambda:ap-southeast-1:180273188579:function:xbrain-w5-kb-sync",
+      "Events": ["s3:ObjectCreated:*", "s3:ObjectRemoved:*"],
+      "Filter": { "Key": { "FilterRules": [{ "Name": "prefix", "Value": "knowledge_base/" }] } }
+    }
+  ]
+}
